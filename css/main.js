@@ -110,7 +110,7 @@ const app = {
               <i class="fas fa-ellipsis-h"></i>
           </div>
       </div>
-  `;
+        `;                  
     });
     playlist.innerHTML = htmls.join("");
   },
@@ -182,7 +182,7 @@ const app = {
 
     // Xử lý khi tua song
     // Handling when seek
-    progress.onchange = function (e) {
+    progress.oninput = function (e) {
       const seekTime = (audio.duration / 100) * e.target.value;
       audio.currentTime = seekTime;
     };
