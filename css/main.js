@@ -1,4 +1,3 @@
-
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
@@ -30,70 +29,62 @@ const app = {
       name: "Đừng Lo Nhé! Có Anh Đây",
       singer: "Thiên Tú",
       path: "/music/dunglonhe!coanhday.mp3",
-      image: "/img/dunglonhe!coanhday.png"
+      image: "/img/dunglonhe!coanhday.png",
     },
     {
       name: "Em Là Kẻ Đáng Thương",
       singer: "Phát Huy T4",
       path: "/music/emlakedangthuong.mp3",
-      image:"/img/emlakedangthuong.png"
+      image: "/img/emlakedangthuong.png",
     },
     {
       name: "Hoa Lạc Lối",
       singer: "Khang Việt",
-      path:"/music/hoalacloi.mp3",
-      image: "/img/hoalacloi.png"
+      path: "/music/hoalacloi.mp3",
+      image: "/img/hoalacloi.png",
     },
     {
       name: "Kìa Bóng Dáng Ai",
       singer: "Pháo, Sterry",
       path: "/music/kiabongai.mp3",
-      image:
-        "/img/kiabongdangai.png"
+      image: "/img/kiabongdangai.png",
     },
     {
       name: "Kiếp Má Hồng",
       singer: "Tú Na, Tiểu Nhi",
       path: "/music/kiepmahong.mp3",
-      image:
-        "/img/kiepmahong.png"
+      image: "/img/kiepmahong.png",
     },
     {
       name: "Khuất Lối",
       singer: "H-Kray",
-      path:
-        "/music/khuatloi.mp3",
-      image:
-        "/img/khuatloi.png"
+      path: "/music/khuatloi.mp3",
+      image: "/img/khuatloi.png",
     },
     {
       name: "Quả Phụ Tướng",
       singer: "Dunghoangpham",
       path: "/music/quaphutuong.mp3",
-      image:
-        "/img/hoaphutuong.png"
+      image: "/img/hoaphutuong.png",
     },
     {
       name: "Rồi Ta Sẽ Ngắm Pháo Hoa",
       singer: "O.lew",
       path: "/music/roitasengamphaohoa.mp3",
-      image:
-        "/img/roitasengamphaohoa.png"
+      image: "/img/roitasengamphaohoa.png",
     },
     {
       name: "Sao Cũng Được",
       singer: "Thành Đạt",
       path: "/music/saocungduoc.mp3",
-      image:
-        "/img/saocungduoc.png"
+      image: "/img/saocungduoc.png",
     },
     {
       name: "Trót Trao Duyên",
       singer: "NB3 Hoài Bảo, CT",
       path: "/music/trottraoduyen.mp3",
-      image:
-        "/img/trottraoduyen.png"
-    }
+      image: "/img/trottraoduyen.png",
+    },
   ],
   setConfig: function (key, value) {
     this.config[key] = value;
@@ -103,21 +94,23 @@ const app = {
   render: function () {
     const htmls = this.songs.map((song, index) => {
       return `
-                        <div class="song ${
-                          index === this.currentIndex ? "active" : ""
-                        }" data-index="${index}">
-                            <div class="thumb"
-                                style="background-image: url('${song.image}')">
-                            </div>
-                            <div class="body">
-                                <h3 class="title">${song.name}</h3>
-                                <p class="author">${song.singer}</p>
-                            </div>
-                            <div class="option">
-                                <i class="fas fa-ellipsis-h"></i>
-                            </div>
-                        </div>
-                    `;
+      <div class="song ${
+        index === this.currentIndex ? "active" : ""
+      }" data-index="${index}">
+          <div class="thumb"
+              style="background-image: url('${
+                song.image
+              }')">
+          </div>
+          <div class="body">
+              <h3 class="title">${song.name}</h3>
+              <p class="author">${song.singer}</p>
+          </div>
+          <div class="option">
+              <i class="fas fa-ellipsis-h"></i>
+          </div>
+      </div>
+  `;
     });
     playlist.innerHTML = htmls.join("");
   },
@@ -125,7 +118,7 @@ const app = {
     Object.defineProperty(this, "currentSong", {
       get: function () {
         return this.songs[this.currentIndex];
-      }
+      },
     });
   },
   handleEvents: function () {
@@ -136,7 +129,7 @@ const app = {
     // Handle CD spins / stops
     const cdThumbAnimate = cdThumb.animate([{ transform: "rotate(360deg)" }], {
       duration: 10000, // 10 seconds
-      iterations: Infinity
+      iterations: Infinity,
     });
     cdThumbAnimate.pause();
 
@@ -272,7 +265,7 @@ const app = {
     setTimeout(() => {
       $(".song.active").scrollIntoView({
         behavior: "smooth",
-        block: "nearest"
+        block: "nearest",
       });
     }, 300);
   },
@@ -332,7 +325,7 @@ const app = {
     // Display the initial state of the repeat & random button
     randomBtn.classList.toggle("active", this.isRandom);
     repeatBtn.classList.toggle("active", this.isRepeat);
-  }
+  },
 };
 
 app.start();
